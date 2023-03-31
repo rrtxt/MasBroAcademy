@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/env-style.css">
+    <link rel="stylesheet" href="./style/header-style.css">
+    <link rel="stylesheet" href="./style/Task-style.css">
+    <link rel="stylesheet" href="./style/footer-style.css">
+    <script src="https://kit.fontawesome.com/b20f20a710.js" crossorigin="anonymous"></script>
+    <title>MasBroAcademy | Dashboard</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div id="header-icon">
+                <h3>MasBroAcademy</h3>
+            </div>
+            <ul>
+                <li><a href="/Home">Home</a></li>
+                <li><a href="/Courses">Course</a></li>
+                <li><a href="/Community">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="">
+            <h2>Update Task</h2>
+            <div class="input-container">
+                <div id="title">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title-input">
+                </div>
+                <div id="video">
+                    <label for="video">Video</label>
+                    <input type="text" name="video" id="video-input">
+                </div>
+                <div id="desc">
+                    <label for="desc">Desc</label>
+                    <textarea name="desc" id="desc-input" cols="69" rows="10"></textarea>
+                </div>
+            </div>
+            <button name="submit" id="submit">Update</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div id="footer-icon">
+                <h3>MasBroAcademy</h3>
+            </div>
+            <div class="about-us">
+                <h4>About Us</h4>
+                <ul class="icons">
+                    <li><a href=""><i class="fab fa-square-facebook fa-2xl"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-instagram fa-2xl"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/Task-validate.js"></script>
+</body>
+</html>

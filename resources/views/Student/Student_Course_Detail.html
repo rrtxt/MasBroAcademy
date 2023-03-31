@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/env-style.css">
+    <link rel="stylesheet" href="./style/header-style.css">
+    <link rel="stylesheet" href="./style/footer-style.css">
+    <link rel="stylesheet" href="./style/S_Course-Detail-style.css">
+    <link rel="stylesheet" href="./style/pop-up-style.css">
+    <script src="https://kit.fontawesome.com/b20f20a710.js" crossorigin="anonymous"></script>
+    <title>MasBroAcademy | Dashboard</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div id="header-icon">
+                <h3>MasBroAcademy</h3>
+            </div>
+            <ul>
+                <li><a href="/Home">Home</a></li>
+                <li><a href="/Courses">Course</a></li>
+                <li><a href="/Community">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pop-up" role="alert">
+        <div class="pop-up-container">
+            <p>Are you sure want to enroll this class</p>
+            <ul class="pop-up-btn">
+                <a id="yes-btn" href=""><li>Yes</li></a>
+                <li id="no-btn">No</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="detail">
+        <div class="course-profile">
+            <div class="course-desc">
+            <h3>Course Title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum diam sed ex mattis, a hendrerit lectus pulvinar. Duis nec ligula elementum, vehicula velit sed, fermentum quam. Donec vel velit nisi. Sed at luctus augue. Proin eu ante in augue bibendum tincidunt. Sed blandit ullamcorper lacinia. Quisque venenatis laoreet iaculis. Vestibulum tortor turpis, porttitor molestie fringilla eget, porttitor eu dui. Ut ac urna justo. Aliquam nec imperdiet ante. Suspendisse mi sapien, molestie sed tempor sed, volutpat sed felis.</p>
+                <div class="course-category">
+                    <h4>Category : Web Programming</h4>
+                </div>
+                <div class="enroll">
+                    <h4>Enroll</h4>
+                </div>
+            </div>
+        </div>
+        <div class="course-tasks">
+            <div class="task collapsible">
+                <div class="task-title">
+                    <h4>HTML 101</h4>
+                    <i class="fa-solid fa-caret-down fa-2xl"></i>
+                </div>
+                <div class="task-content">
+                    <div class="task-video">
+                        <iframe src="https://youtube.com/embed/SCwcJsBYL3o" frameborder="0"></iframe>
+                    </div>
+                    <div class="task-desc">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum diam sed ex mattis, a hendrerit lectus pulvinar. Duis nec ligula elementum, vehicula velit sed, fermentum quam. Donec vel velit nisi. Sed at luctus augue. Proin eu ante in augue bibendum tincidunt. Sed blandit ullamcorper lacinia. Quisque venenatis laoreet iaculis. Vestibulum tortor turpis, porttitor molestie fringilla eget, porttitor eu dui. Ut ac urna justo. Aliquam nec imperdiet ante. Suspendisse mi sapien, molestie sed tempor sed, volutpat sed felis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="task collapsible">
+                <div class="task-title">
+                    <h4>CSS 101</h4>
+                    <i class="fa-solid fa-caret-down fa-2xl"></i>
+                </div>
+                <div class="task-content">
+                    <div class="task-video">
+                        <iframe src="https://youtube.com/embed/SCwcJsBYL3o" frameborder="0"></iframe>
+                    </div>
+                    <div class="task-desc">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum diam sed ex mattis, a hendrerit lectus pulvinar. Duis nec ligula elementum, vehicula velit sed, fermentum quam. Donec vel velit nisi. Sed at luctus augue. Proin eu ante in augue bibendum tincidunt. Sed blandit ullamcorper lacinia. Quisque venenatis laoreet iaculis. Vestibulum tortor turpis, porttitor molestie fringilla eget, porttitor eu dui. Ut ac urna justo. Aliquam nec imperdiet ante. Suspendisse mi sapien, molestie sed tempor sed, volutpat sed felis.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div id="footer-icon">
+                <h3>MasBroAcademy</h3>
+            </div>
+            <div class="about-us">
+                <h4>About Us</h4>
+                <ul class="icons">
+                    <li><a href=""><i class="fab fa-square-facebook fa-2xl"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-instagram fa-2xl"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/collapsible.js"></script>
+    <script src="./js/pop-up.js"></script>
+</body>
+</html>

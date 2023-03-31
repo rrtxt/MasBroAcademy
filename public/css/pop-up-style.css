@@ -1,0 +1,110 @@
+
+.pop-up{
+    /* position: fixed;
+    left: 0;
+    top: 0;
+    height: 100px;
+    width: 200px;
+    background-color: rgb(223, 223, 223);
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s 0s, visibilty 0s 0.3s; */
+    position: fixed;
+    padding: 200px 0px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.678);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    transition: opacity 0.3s 0s, visibility 0s 0.3s;
+    z-index: 5;
+}
+
+
+.visible{
+    /* display: block;
+    opacity: 1;
+    transition: opacity 0.3s 0s, visibilty 0s 0s; */
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.pop-up-container {
+    /* transform: translateY(-40px);
+    transition-property: transform;
+    transition-duration: 0.3s; */
+    position: relative;
+    width: 400px;
+    height: auto;
+    max-width: 400px;
+    /* padding: 10px; */
+    margin: 4em auto;
+    background: #FFF;
+    border-radius: .25em .25em .4em .4em;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: translateY(-1000px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(-1000px);
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-backface-visibility: hidden;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.pop-up-container p{
+    padding-top: 10px;
+}
+
+.pop-up-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.pop-up-btn li{
+    width: 100%;
+    padding: 10px 85px;
+}
+
+#yes-btn {
+    color: black;
+}
+
+#yes-btn li{
+    width: auto;
+}
+
+#yes-btn:hover{
+    border-radius: .25em .25em .4em .4em;
+    background-color: rgba(67, 255, 108, 0.5);
+    color: #FFF;
+}
+
+#no-btn:hover{
+    border-radius: .25em .25em .4em .4em;
+    background-color: rgba(255, 67, 67, 0.5);
+    color: #FFF;
+}
+
+.visible .pop-up-container{
+    /* transform: translateY(0); */
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/env-style.css">
+    <link rel="stylesheet" href="./style/header-style.css">
+    <link rel="stylesheet" href="./style/Course-style.css">
+    <link rel="stylesheet" href="./style/footer-style.css">
+    <script src="https://kit.fontawesome.com/b20f20a710.js" crossorigin="anonymous"></script>
+    <title>MasBroAcademy | Dashboard</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div id="header-icon">
+                <h3>MasBroAcademy</h3>
+            </div>
+            <ul>
+                <li><a href="./Home.html">Home</a></li>
+                <li><a href="./All_Courses.html">Course</a></li>
+                <li><a href="/Community">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="./Lecture_Dashboard.html">
+            <h2>Create Course</h2>
+            <div id="cover">
+                <input type="file" name="cover" id="img-input" accept="image/*" value="Cover">
+                <h3>Cover</h3>
+            </div>
+            <div class="input">
+                <h3 for="title-input" id="title">Title</h3>
+                <div>
+                    <input type="text" id="title-input" name="title" placeholder="Title here...">
+                    <p class="error"></p>
+                </div>
+            </div>
+            <div class="input">
+                <h3 for="category" id="category">Category</h3>
+                <div id="category-container">
+                    <select name="category" id="category-input">
+                        <option value="">--Please choose an category--</option>
+                        <option value="Web Programming">Web Programming</option>
+                        <option value="Mobile Programming">Mobile Programming</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Data Science">Data Science</option>
+                    </select>
+                    <p class="error"></p>
+                </div>
+            </div>
+            <div class="input">
+                <div id="desc">
+                    <h3 for="desc" id="desc-title">Desc</h3>
+                </div>
+                <div>
+                    <textarea type="textarea" name="desc" id="desc-input" rows="10" cols="70" placeholder="Description of your course..."></textarea>
+                    <p class="error"></p>
+                </div>
+            </div>
+            <button type="submit" id="submit">Create</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div id="footer-icon">
+                <h3>MasBroAcademy</h3>
+            </div>
+            <div class="about-us">
+                <h4>About Us</h4>
+                <ul class="icons">
+                    <li><a href=""><i class="fab fa-square-facebook fa-2xl"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-instagram fa-2xl"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/image-upload.js"></script>
+    <script type="module" src="./js/Course-validate.js"></script>
+</body>
+</html>

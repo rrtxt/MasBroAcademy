@@ -1,0 +1,49 @@
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-bottom:100px ;
+}
+
+body{
+    background-image: url('../image/masbro-ngoding.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.home-container{
+    padding-top: 100px;
+    height: 25em;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    font-weight:lighter;
+}
+
+.home-container h3{
+    margin-top: 20px;
+}
+
+.home-container h4{
+    margin-top: 150px;
+}
+
+.button-container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+}
+
+.signup-btn{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    font-size: large;
+}
+
+.signup-btn:hover{
+    background-color: rgb(156, 156, 156);
+    color: white;
+}

@@ -1,0 +1,134 @@
+.container{
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+#search-bar-container{
+    display: flex;
+    padding-top: 120px;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    width: 60%;
+    border: none;
+    border-radius: 35px;
+    background-color: #D9D9D9;
+}
+
+#search-bar-container{
+    padding-top: 50px;
+}
+
+#search-bar{
+    /* width: 80%;
+    padding: 10px 25px;
+    border: 0.1px solid rgb(0, 0, 0) ;
+    border-radius: 35px;
+    background-color: #D9D9D9; */
+    border: none;
+    width: 100%;
+    background: transparent;
+    margin-left: 10px ;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: inherit;
+    border: 1px solid transparent;
+    border-radius: inherit;
+}
+
+#search-bar:focus{
+    outline: 0 none;
+}
+
+input[type="search"]::placeholder{
+    color: black;
+    font-weight: 600;
+}
+
+button[type="submit"]{
+    /* overflow: hidden; */
+    width: 75px;
+    border-radius: 35px;
+    border: none;
+    background-color: #706C61;
+}
+
+button[type="submit"]:hover{
+    /* overflow: hidden; */
+    background-color: #4d4a43;
+}
+
+button{
+    color: white;
+}
+
+.trend-courses{
+    margin-top: 25px;
+}
+
+#trend-title{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 350px 350px 350px ;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.course{
+    margin-top: 20px;
+}
+
+.card{
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin:auto;
+    box-shadow: 3px 7px 5px rgba(0, 0, 0, 0.3);
+}
+
+.course-title{
+    padding: 10px 30px;
+}
+
+.categories{
+    margin-top: 100px;
+}
+
+#categories-title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categories-container{
+    display: flex;
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-title{
+    padding: 10px 10px;
+}
+
+#left-button{
+    padding-bottom: 50px;
+}
+
+#right-button{
+    padding-bottom: 50px;
+}
+
+
+
