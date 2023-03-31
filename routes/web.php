@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/student-signup', function () {
+    return view('Student.signup');
+});
+Route::post('/student-signup', function(){
+    return redirect('/login');
+});
+
+Route::get('/login', function(){
+    return view('Student.login');
+});
+Route::get('/login', function(){
+    return redirect('/student-dashboard');
+});
+
+Route::get('/student-dashboard', function(){
+    return view('Student.dashboard');
+});

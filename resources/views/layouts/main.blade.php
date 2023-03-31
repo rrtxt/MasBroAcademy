@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/header-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer-style.css') }}">
     <script src="https://kit.fontawesome.com/b20f20a710.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>MasBroAcademy</title>
 </head>
 
 <body>
