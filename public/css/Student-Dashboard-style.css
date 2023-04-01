@@ -61,7 +61,7 @@
 
 .course-title{
     margin-top: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .all-courses{
@@ -73,7 +73,7 @@
     align-items: center;
     border-radius: 30px;
     background-color: #706C61;
-    width:65vw;
+    width:55vw;
     height: 68px;
 }
 

@@ -55,7 +55,7 @@
                     <h3 class="course-title">Babi guling</h3>
                 </div>
             </div>
-            <a href="./All_Courses.html">
+            <a href="/Courses">
                 <div class="all-courses">
                     <h4>All Courses</h4>
                 </div>

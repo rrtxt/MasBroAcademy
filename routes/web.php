@@ -21,16 +21,24 @@ Route::get('/student-signup', function () {
     return view('Student.signup');
 });
 Route::post('/student-signup', function(){
-    return redirect('/login');
+    return redirect('/student-login');
 });
 
-Route::get('/login', function(){
+Route::get('/student-login', function(){
     return view('Student.login');
 });
-Route::get('/login', function(){
+Route::get('/student-login', function(){
     return redirect('/student-dashboard');
 });
 
 Route::get('/student-dashboard', function(){
     return view('Student.dashboard');
+});
+
+Route::get('/Courses', function(){
+    return view('courses');
+});
+
+Route::get('/course', function(){
+    return view('Student.course');
 });

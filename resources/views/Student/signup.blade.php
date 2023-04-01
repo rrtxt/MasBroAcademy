@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 
 <head>
     <link rel="stylesheet" href="{{ asset('css/Sign-Up-style.css') }}">
