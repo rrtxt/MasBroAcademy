@@ -35,10 +35,30 @@ Route::get('/student-dashboard', function(){
     return view('Student.dashboard');
 });
 
-Route::get('/Courses', function(){
+Route::get('/courses', function(){
     return view('courses');
 });
 
 Route::get('/course', function(){
     return view('Student.course');
+});
+
+Route::get('/lecturer-signup', function(){
+    return view('Lecturer.signup');
+});
+
+Route::post('/lecturer-signup', function(){
+    return redirect('/lecturer-login');
+});
+
+Route::get('/lecturer-login', function(){
+    return view('Lecturer.login');
+});
+
+Route::post('/lecturer-login', function(){
+    return redirect('/lecturer-dashboard');
+});
+
+Route::get('/lecturer-dashboard', function(){
+    return view('Lecturer.dashboard');
 });

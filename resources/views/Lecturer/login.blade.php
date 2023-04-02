@@ -1,15 +1,13 @@
 @extends('layouts.main')
 
-<head>
-    <link rel="stylesheet" href="{{ asset('css/Login-style.css') }}">
-</head>
+<link rel="stylesheet" href="{{ asset('css/Login-style.css') }}">
 
 @section('main-section')
     <div class="background-container">
-        <form name="log-in" action="/login" method="POST">
+        <form name="log-in" action="/lecturer-login" method="POST">
             @csrf
             <h1 id="login-title">Login</h1>
-            <h2>Student</h2>
+            <h2>Lecturer</h2>
             <div class="input-container">
                 <div class="input">
                     <input type="text" id="username" name="username" placeholder="Username">
@@ -27,5 +25,5 @@
         </form>
     </div>
 
-    <script type='module' src="{{ asset('js/Login-validate.js') }}"></script>
+    <script type="module" src="{{ asset('js/Login-validate.js') }}"></script>
 @endsection
