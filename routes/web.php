@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // dd(Route::getCurrentRoute()->uri());
     return view('home');
 });
 
 Route::get('/student-signup', function () {
+    dd(Route::getCurrentRoute()->uri());
     return view('Student.signup');
 });
 Route::post('/student-signup', function(){
@@ -27,7 +30,7 @@ Route::post('/student-signup', function(){
 Route::get('/student-login', function(){
     return view('Student.login');
 });
-Route::get('/student-login', function(){
+Route::post('/student-login', function(){
     return redirect('/student-dashboard');
 });
 

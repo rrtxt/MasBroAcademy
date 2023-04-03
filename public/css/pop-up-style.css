@@ -41,9 +41,9 @@
     transition-property: transform;
     transition-duration: 0.3s; */
     position: relative;
-    width: 400px;
+    width: 500px;
     height: auto;
-    max-width: 400px;
+    max-width: 600px;
     /* padding: 10px; */
     margin: 4em auto;
     background: #FFF;
@@ -76,8 +76,17 @@
 }
 
 .pop-up-btn li{
-    width: 100%;
+    /* width: 100%; */
     padding: 10px 85px;
+    color: black;
+}
+
+#no-mark:hover{
+    cursor: pointer;
+}
+
+.fa-xmark{
+    transform: translate(230px ,5px);
 }
 
 #yes-btn {
@@ -86,6 +95,7 @@
 
 #yes-btn li{
     width: auto;
+    width: max-content;
 }
 
 #yes-btn:hover{

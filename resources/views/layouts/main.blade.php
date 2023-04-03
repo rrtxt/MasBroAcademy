@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/env-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/header-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pop-up-style.css') }}">
     <script src="https://kit.fontawesome.com/b20f20a710.js" crossorigin="anonymous"></script>
     <title>MasBroAcademy</title>
 </head>
@@ -19,12 +20,33 @@
                 <h3>MasBroAcademy</h3>
             </div>
             <ul>
-                <li><a href="/">Home</a></li>
+                @if (Route::getCurrentRoute()->uri() == '/')
+                    <li id="login">Login</li>
+                @else
+                    <li><a href="/"></a>Home</li>
+                @endif
                 <li><a href="/courses">Course</a></li>
                 <li><a href="/Community">Community</a></li>
             </ul>
         </div>
     </nav>
+
+    <div class="login pop-up" role="alert">
+        <div class="pop-up-container">
+            <div id='no-mark'>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <p>Login as...</p>
+            <ul class="pop-up-btn">
+                <a id="yes-btn" href="/student-login">
+                    <li>Student</li>
+                </a>
+                <a href="/lecturer-login">
+                    <li id="no-btn">Lecturer</li>
+                </a>
+            </ul>
+        </div>
+    </div>
 
     <div class="container">
         @yield('main-section')
@@ -45,6 +67,8 @@
             </div>
         </div>
     </footer>
+
+    <script type="module" src="{{ asset('js/login-pop-up.js') }}"></script>
 </body>
 
 </html>
