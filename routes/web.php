@@ -20,7 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('/student-signup', function () {
-    dd(Route::getCurrentRoute()->uri());
     return view('Student.signup');
 });
 Route::post('/student-signup', function(){
@@ -46,22 +45,56 @@ Route::get('/course', function(){
     return view('Student.course');
 });
 
-Route::get('/lecturer-signup', function(){
-    return view('Lecturer.signup');
-});
 
-Route::post('/lecturer-signup', function(){
-    return redirect('/lecturer-login');
-});
+Route::prefix('lecturer')->group(function(){
+    Route::get('/signup', function(){
+        return view('Lecturer.signup');
+    });
+    
+    Route::post('/signup', function(){
+        return redirect('/lecturer/login');
+    });
+    
+    Route::get('/login', function(){
+        return view('Lecturer.login');
+    });
+    
+    Route::post('/login', function(){
+        return redirect('/lecturer/dashboard');
+    });
+    
+    Route::get('/dashboard', function(){
+        return view('Lecturer.dashboard');
+    });
 
-Route::get('/lecturer-login', function(){
-    return view('Lecturer.login');
-});
+    Route::get('/course', function(){
+        return view('Lecturer.course');
+    });
+    
+    Route::get('/add-course', function(){
+        return view('Lecturer.add_course');
+    });
+    Route::post('/add-course', function(){
+        return redirect('/lecturer/dashboard');
+    });
+    Route::get('/update-course', function(){
+        return view('Lecturer.update_course');
+    });
+    Route::post('/update-course', function(){
+        return redirect('/lecturer/course');
+    });
 
-Route::post('/lecturer-login', function(){
-    return redirect('/lecturer-dashboard');
-});
+    Route::get('/add-task', function(){
+        return view('Lecturer.add_task');
+    });
+    Route::post('/add-task', function(){
+        return redirect('/lecturer/course');
+    });
 
-Route::get('/lecturer-dashboard', function(){
-    return view('Lecturer.dashboard');
+    Route::get('/update-task', function(){
+        return view('Lecturer.update_task');
+    });
+    Route::post('/update-task', function(){
+        return redirect(('/lecturer/course'));
+    });
 });

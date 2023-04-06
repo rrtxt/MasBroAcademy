@@ -18,6 +18,7 @@
         <div class="course-container">
             <h2>Studied Recently</h2>
             <div class="course-cards">
+                <a href="/course"></a>
                 <div class="course">
                     <div class="card">
 

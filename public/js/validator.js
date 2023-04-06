@@ -40,8 +40,15 @@ function validateSelect(select, e, errorEl, message) {
     return true
 }
 
-function validateImage(image, e, errorEl, message) {
-
+function validateImage(image, e, errorEl) {
+    if (image.value == '') {
+        errorEl.innerHTML = '<i class="fa-solid fa-circle-exclamation fa-lg"></i> This field cannot be empty'
+        errorEl.style.display = 'block'
+        e.preventDefault()
+        return false
+    }
+    errorEl.style.display = 'none'
+    return true
 }
 
-export { validate, validatePassword, validateSelect }
+export { validate, validatePassword, validateSelect, validateImage }

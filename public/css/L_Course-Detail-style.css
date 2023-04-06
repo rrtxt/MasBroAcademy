@@ -45,6 +45,7 @@
 
 .course-tasks{
     height: auto;
+    margin-bottom: 80px;
 }
 
 .task{
@@ -94,3 +95,23 @@
     font-size: 16px;
     font-weight: 600;
 }
+
+.add-course{
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-color: #706C61;
+    width: 45vw;
+    height: 48px;
+    color: white;
+}
+
+.add-course:hover{
+    background-color: #ada898;
+}
+
+

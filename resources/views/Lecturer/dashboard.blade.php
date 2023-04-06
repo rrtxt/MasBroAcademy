@@ -18,16 +18,18 @@
         <div class="course-container">
             <div class="line-course">
                 <h2>Your Courses</h2>
-                <a href="/">
+                <a href="/lecturer/add-course">
                     <h4 id="add-course">Add Course</h4>
                 </a>
             </div>
             <div class="course-cards">
-                <div class="course">
-                    <div class="card">
+                <a href="/lecturer/course">
+                    <div class="course">
+                        <div class="card">
+                        </div>
+                        <h3 class="course-title">Babi guling</h3>
                     </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
+                </a>
                 <div class="course">
                     <div class="card">
 
@@ -59,9 +61,11 @@
                     <h3 class="course-title">Babi guling</h3>
                 </div>
             </div>
-            <div class="all-courses">
-                <h4>All Courses</h4>
-            </div>
+            <a href="/courses">
+                <div class="all-courses">
+                    <h4>All Courses</h4>
+                </div>
+            </a>
         </div>
     </div>
 @endsection

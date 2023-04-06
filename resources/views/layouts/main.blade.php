@@ -23,7 +23,7 @@
                 @if (Route::getCurrentRoute()->uri() == '/')
                     <li id="login">Login</li>
                 @else
-                    <li><a href="/"></a>Home</li>
+                    <li><a href="/">Home</a></li>
                 @endif
                 <li><a href="/courses">Course</a></li>
                 <li><a href="/Community">Community</a></li>
@@ -68,7 +68,10 @@
         </div>
     </footer>
 
-    <script type="module" src="{{ asset('js/login-pop-up.js') }}"></script>
+    @if (Route::getCurrentRoute()->uri() == '/')
+        <script type="module" src="{{ asset('js/login-pop-up.js') }}"></script>
+    @endif
+
 </body>
 
 </html>

@@ -14,7 +14,7 @@
                 <a href="/student-signup">
                     <button class="signup-btn" type="button">Student</button>
                 </a>
-                <a href="/lecturer-signup">
+                <a href="/lecturer/signup">
                     <button class="signup-btn" type="button">Lecture</button>
                 </a>
             </div>

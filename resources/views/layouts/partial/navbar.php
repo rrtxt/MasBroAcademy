@@ -5,7 +5,7 @@
         </div>
         <ul>
             <li><a href="./Home.html">Home</a></li>
-            <li><a href="./All_Courses.html">Course</a></li>
+            <li><a href="./All_Courses">Course</a></li>
             <li><a href="/Community">Community</a></li>
         </ul>
     </div>

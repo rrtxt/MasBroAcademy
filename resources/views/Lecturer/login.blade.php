@@ -1,10 +1,11 @@
 @extends('layouts.main')
 
 <link rel="stylesheet" href="{{ asset('css/Login-style.css') }}">
+<link rel="stylesheet" href="{{ ssset('css/pop-up-style.css') }}">
 
 @section('main-section')
     <div class="background-container">
-        <form name="log-in" action="/lecturer-login" method="POST">
+        <form name="log-in" action="/lecturer/login" method="POST">
             @csrf
             <h1 id="login-title">Login</h1>
             <h2>Lecturer</h2>
@@ -26,4 +27,5 @@
     </div>
 
     <script type="module" src="{{ asset('js/Login-validate.js') }}"></script>
+    <script type="module" src="{{ asset('js/pop-up.js') }}"></script>
 @endsection
