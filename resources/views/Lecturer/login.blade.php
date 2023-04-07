@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 <link rel="stylesheet" href="{{ asset('css/Login-style.css') }}">
-<link rel="stylesheet" href="{{ ssset('css/pop-up-style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pop-up-style.css') }}">
 
 @section('main-section')
     <div class="background-container">

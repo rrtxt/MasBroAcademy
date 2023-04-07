@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <nav>
         <div class="nav-content">
             <div id="header-icon">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LecturerController;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Facades\Route;
 
@@ -51,9 +52,7 @@ Route::prefix('lecturer')->group(function(){
         return view('Lecturer.signup');
     });
     
-    Route::post('/signup', function(){
-        return redirect('/lecturer/login');
-    });
+    Route::post('/signup', [LecturerController::class, 'register']);
     
     Route::get('/login', function(){
         return view('Lecturer.login');
