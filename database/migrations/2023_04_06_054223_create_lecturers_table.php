@@ -15,9 +15,9 @@ class CreateLecturersTable extends Migration
     {
         Schema::table('lecturers', function (Blueprint $table) {
             $table->id();
-            $table->string('lecturer_name', 256);
-            $table->string('lecturer_email', 64);
-            $table->text('lecturer_password')->change();
+            $table->string('name', 256);
+            $table->string('email', 64);
+            $table->text('password')->change();
             $table->timestamps();
         });
     }

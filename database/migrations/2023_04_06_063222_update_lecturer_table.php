@@ -14,7 +14,13 @@ class UpdateLecturerTable extends Migration
     public function up()
     {
         Schema::table('lecturers', function (Blueprint $table) {
-            $table->longText('lecturer_password')->change();
+            $table->renameColumn('lecturer_name', 'name')->change();
+            $table->renameColumn('lecturer_email', 'email')->change();
+            $table->renameColumn('lecturer_password', 'password')->change();
+        });
+        
+        Schema::table('lecturers', function (Blueprint $table){
+            $table->longText('password')->change();
         });
     }
 

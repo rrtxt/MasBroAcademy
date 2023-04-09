@@ -18,9 +18,9 @@ class LecturerFactory extends Factory
     {
         return [
             //
-            'lecturer_name' => $this->faker->name(),
-            'lecturer_email' => $this->faker->email(),
-            'lecturer_password' => Hash::make($this->faker->password()), 
+            'name' => $this->faker->name(),
+            'email' => $this->faker->email(),
+            'password' => Hash::make($this->faker->password()), 
             'created_at' => Date::now(),
             'updated_at' => Date::now(),
         ];

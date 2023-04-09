@@ -10,6 +10,6 @@ for (var i = 0; i < error.length; i++) {
 }
 
 form.addEventListener('submit', (e) => {
-    validate(username, /[a-zA-Z0-9 !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{6,}/gmi, e, error[0], 'This is not valid username')
+    validate(username, /[a-zA-Z0-9 !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{5,}/gmi, e, error[0], 'This is not valid username')
     validate(password, /[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{6,}/gmi, e, error[1], 'Password length must less than 6 character')
 })

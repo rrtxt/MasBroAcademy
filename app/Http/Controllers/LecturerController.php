@@ -13,14 +13,14 @@ class LecturerController extends Controller
 {
     public function register(Request $request){
         $credential = [
-            'lecturer_name' => $request['username'],
-            'lecturer_email' => $request['email'],
-            'lecturer_password' => Hash::make($request['password']),
+            'name' => $request['username'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
             'created_at' => Date::now(),
             'updated_at' => Date::now(),
         ];
         
-        if(Lecturer::where('lecturer_email', $credential['lecturer_email'])->count() < 1){
+        if(Lecturer::where('email', $credential['email'])->count() < 1){
             Lecturer::create($credential);
             return redirect('/lecturer/login');
         }
@@ -30,9 +30,21 @@ class LecturerController extends Controller
         return back();
     }
 
+    public function login(Request $request){
+        $credential = [
+            'email' => $request['email'],
+            'password' => $request['password']
+        ];
 
+        if(Auth::attempt($credential)){
+            $request->session()->regenerate();
 
-    // public function login(){
-        
-    // }
+            return redirect('/lecturer/dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'This email doesnt match',
+            'password' => 'This password doesnt match'
+        ])->onlyInput('email');
+    }
 }
