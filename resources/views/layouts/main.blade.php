@@ -39,10 +39,10 @@
             </div>
             <p>Login as...</p>
             <ul class="pop-up-btn">
-                <a id="yes-btn" href="/student-login">
+                <a id="yes-btn" href="/student/login">
                     <li>Student</li>
                 </a>
-                <a href="/lecturer-login">
+                <a href="/lecturer/login">
                     <li id="no-btn">Lecturer</li>
                 </a>
             </ul>

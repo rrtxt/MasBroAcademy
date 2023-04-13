@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Lecturer extends Authenticatable
@@ -18,4 +17,13 @@ class Lecturer extends Authenticatable
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+    /**
+     * Get all of the comments for the Lecturer
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function course()
+    {
+        return $this->hasMany(Course::class);
+    }
 }

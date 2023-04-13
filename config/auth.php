@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'lecturer',
         'passwords' => 'users',
     ],
 
@@ -36,9 +36,13 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'lecturer' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'lecturer',
+        ],
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'student',
         ],
     ],
 
@@ -60,15 +64,15 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'lecturer' => [
             'driver' => 'eloquent',
             'model' => App\Models\Lecturer::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'student' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
     ],
 
     /*

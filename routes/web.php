@@ -57,8 +57,8 @@ Route::prefix('lecturer')->group(function(){
     Route::get('/login', function(){
         return view('Lecturer.login');
     });
-    
     Route::post('/login', [LecturerController::class, 'login']);
+    
     
     Route::get('/dashboard', function(){
         return view('Lecturer.dashboard');

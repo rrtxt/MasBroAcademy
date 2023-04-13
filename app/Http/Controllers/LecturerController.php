@@ -36,10 +36,10 @@ class LecturerController extends Controller
             'password' => $request['password']
         ];
 
-        if(Auth::attempt($credential)){
+        if(Auth::guard('lecturer')->attempt($credential)){
             $request->session()->regenerate();
-
-            return redirect('/lecturer/dashboard');
+            $user = Auth::user();
+            return redirect('/lecturer/dashboard')->with(['user' => $user]);
         }
 
         return back()->withErrors([

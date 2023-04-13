@@ -10,7 +10,7 @@
             <div class="profile">
                 <img src="{{ asset('image/chumimin.jpeg') }}" alt="">
                 <div class="profile-text">
-                    <h4>Rizfi Ferdiansyah</h4>
+                    <h4>{{ session()->get('user')->name }}</h4>
                     <h5>Lecturer</h5>
                 </div>
             </div>
