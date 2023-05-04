@@ -9,7 +9,7 @@ class Lecturer extends Authenticatable
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = ['name', 'email', 'password'];
 
@@ -22,7 +22,7 @@ class Lecturer extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function course()
+    public function courses()
     {
         return $this->hasMany(Course::class);
     }

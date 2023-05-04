@@ -39,12 +39,17 @@ class LecturerController extends Controller
         if(Auth::guard('lecturer')->attempt($credential)){
             $request->session()->regenerate();
             $user = Auth::user();
-            return redirect('/lecturer/dashboard')->with(['user' => $user]);
+            session(['user' => $user]);
+            return redirect('/lecturer/dashboard');
         }
 
         return back()->withErrors([
-            'email' => 'This email doesnt match',
             'password' => 'This password doesnt match'
         ])->onlyInput('email');
+    }
+
+    public function index(){
+        $user = Auth::user();
+        return view('Lecturer.dashboard', ['user' => $user]);
     }
 }

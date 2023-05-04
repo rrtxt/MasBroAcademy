@@ -10,7 +10,7 @@
             <div class="profile">
                 <img src="{{ asset('image/chumimin.jpeg') }}" alt="">
                 <div class="profile-text">
-                    <h4>{{ session()->get('user')->name }}</h4>
+                    <h4>{{ $user->name }}</h4>
                     <h5>Lecturer</h5>
                 </div>
             </div>
@@ -18,48 +18,21 @@
         <div class="course-container">
             <div class="line-course">
                 <h2>Your Courses</h2>
-                <a href="/lecturer/add-course">
+                <a href="{{ route('courses.create') }}">
                     <h4 id="add-course">Add Course</h4>
                 </a>
             </div>
             <div class="course-cards">
-                <a href="/lecturer/course">
-                    <div class="course">
-                        <div class="card">
+                @foreach ($user->courses as $course)
+                    <a href="{{ route('courses.show', $course->id) }}">
+                        <div class="course">
+                            <div class="card"
+                                style="background-image: url({{ asset('storage/' . $course['image']) }}); background-size: cover;">
+                            </div>
+                            <h3 class="course-title">{{ $course->title }}</h3>
                         </div>
-                        <h3 class="course-title">Babi guling</h3>
-                    </div>
-                </a>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
+                    </a>
+                @endforeach
             </div>
             <a href="/courses">
                 <div class="all-courses">

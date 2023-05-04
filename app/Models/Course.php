@@ -8,6 +8,17 @@ class Course extends Model
 {
     use HasFactory;
 
+    protected $table = 'courses';
+
+    public $timestamps = true;
+
+    protected $fillable = ['title', 'description', 'lecturer_id', 'image'];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     /**
      * Get the user that owns the Course
      *
@@ -17,4 +28,6 @@ class Course extends Model
     {
         return $this->belongsTo(Lecturer::class, 'id', 'lecturer_key');
     }
+
+
 }

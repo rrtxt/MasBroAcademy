@@ -4,12 +4,6 @@
 <link rel="stylesheet" href="{{ asset('css/pop-up-style.css') }}">
 
 @section('main-section')
-    @error('email')
-        <div>{{ $message }}</div>
-    @enderror
-    @error('password')
-        <div>{{ $message }}</div>
-    @enderror
     <div class="background-container">
         <form name="log-in" action="/lecturer/login" method="POST">
             @csrf
@@ -17,13 +11,18 @@
             <h2>Lecturer</h2>
             <div class="input-container">
                 <div class="input">
-                    <input type="text" id="username" name="email" placeholder="Email">
+                    <input type="text" id="username" name="email" placeholder="Email" value="{{ old('email') }}">
                     <p id="username-error"></p>
+                    @error('email')
+                        <div>{{ $message }}</div>
+                    @enderror
                 </div>
-
                 <div class="input">
                     <input type="password" id="password" name="password" placeholder="Password">
                     <p id="password-error"></p>
+                    @error('password')
+                        <div>{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="button-container">

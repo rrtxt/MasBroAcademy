@@ -36,20 +36,16 @@
         <div class="course-profile">
             <div class="course-desc">
                 <div class="course-title">
-                    <h3>Course Title</h3>
+                    <h3>{{ $course['title'] }}</h3>
                     <div>
                         <ul class="title-icons">
-                            <li><a href="/lecturer/update-course"><i class="fa-regular fa-pen-to-square fa-xl"></i></a></li>
+                            <li><a href="{{ route('courses.edit', $course['id']) }}"><i
+                                        class="fa-regular fa-pen-to-square fa-xl"></i></a></li>
                             <li class="course-delete"><i class="fa-solid fa-trash-can fa-xl"></i></li>
                         </ul>
                     </div>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum diam sed ex mattis, a hendrerit
-                    lectus pulvinar. Duis nec ligula elementum, vehicula velit sed, fermentum quam. Donec vel velit nisi.
-                    Sed at luctus augue. Proin eu ante in augue bibendum tincidunt. Sed blandit ullamcorper lacinia. Quisque
-                    venenatis laoreet iaculis. Vestibulum tortor turpis, porttitor molestie fringilla eget, porttitor eu
-                    dui. Ut ac urna justo. Aliquam nec imperdiet ante. Suspendisse mi sapien, molestie sed tempor sed,
-                    volutpat sed felis.</p>
+                <p>{{ $course['description'] }}</p>
                 <div class="course-category">
                     <h4>Category : Web Programming</h4>
                 </div>

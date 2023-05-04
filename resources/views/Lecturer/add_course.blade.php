@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/Course-style.css') }}">
 
 @section('main-section')
-    <form action="/lecturer/add-course" method="POST">
+    <form action="{{ route('courses.store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <h2>Create Course</h2>
         <div id="cover">

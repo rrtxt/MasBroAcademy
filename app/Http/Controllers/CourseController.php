@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
+use Illuminate\Support\Facades\Date;
 
 class CourseController extends Controller
 {
@@ -15,7 +16,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+
+        return view('courses', ['courses' => $courses]);
     }
 
     /**
@@ -25,7 +28,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('Lecturer.add_course');
     }
 
     /**
@@ -36,7 +39,21 @@ class CourseController extends Controller
      */
     public function store(StoreCourseRequest $request)
     {
-        //
+        $image_path = $request->file('cover')->store('image', 'public');
+        $data = [
+            'image' => $image_path,
+            'title' => $request['title'],
+            'category' => $request['category'],
+            'description' => $request['desc'],
+            'lecturer_id' => session('user')->id,
+            'created_at' =>  Date::now(),
+            'updated_at' => Date::now(),
+            ];
+
+            if(Course::where('title', $data['title'])->count() < 1){
+                Course::create($data);
+                return redirect()->route('lecturer.dashboard');
+            }
     }
 
     /**
@@ -47,7 +64,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return view('Lecturer.course', compact('course'));
     }
 
     /**
@@ -58,7 +75,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view('Lecturer.update_course', compact('course'));
     }
 
     /**
@@ -70,7 +87,8 @@ class CourseController extends Controller
      */
     public function update(UpdateCourseRequest $request, Course $course)
     {
-        //
+        $course->update($request->all());
+        return redirect()->route('lecturer.dashboard');
     }
 
     /**

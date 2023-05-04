@@ -11,6 +11,8 @@ for (var i = 0; i < error.length; i++) {
     error[i].style.display = 'none'
 }
 
+console.log(title.value)
+
 
 form.addEventListener('submit', (e) => {
     validateImage(image, e, error[0])

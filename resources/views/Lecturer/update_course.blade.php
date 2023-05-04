@@ -3,17 +3,14 @@
 <link rel="stylesheet" href="{{ asset('css/Course-style.css') }}">
 
 @section('main-section')
-    <form action="/lecturer/update-course" method="POST">
+    <form action="{{ route('courses.update', $course['id']) }}" method="POST">
         @csrf
+        @method('PUT')
         <h2>Update Course</h2>
-        <div id="cover">
-            <input type="file" name="cover" id="img-input" accept="image/*" value="Cover">
-            <h3>Cover</h3>
-        </div>
         <div class="input">
             <h3 for="title-input" id="title">Title</h3>
             <div>
-                <input type="text" id="title-input" name="title" placeholder="Title here...">
+                <input type="text" id="title-input" name="title" placeholder="Title here..." value="{{ $course->title }}">
                 <p class="error"></p>
             </div>
         </div>
@@ -35,8 +32,8 @@
                 <h3 for="desc" id="desc-title">Desc</h3>
             </div>
             <div>
-                <textarea type="textarea" name="desc" id="desc-input" rows="10" cols="70"
-                    placeholder="Description of your course..."></textarea>
+                <textarea type="textarea" name="description" id="desc-input" rows="10" cols="70"
+                    placeholder="Description of your course..." ">{{ $course['description'] }}</textarea>
                 <p class="error"></p>
             </div>
         </div>

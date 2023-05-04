@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LecturerController;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Facades\Route;
@@ -59,27 +60,24 @@ Route::prefix('lecturer')->group(function(){
     });
     Route::post('/login', [LecturerController::class, 'login']);
     
+    Route::resource('course', CourseController::class);
     
-    Route::get('/dashboard', function(){
-        return view('Lecturer.dashboard');
-    });
+    Route::get('/dashboard', [LecturerController::class, 'index'])->name('lecturer.dashboard');
 
-    Route::get('/course', function(){
-        return view('Lecturer.course');
-    });
+    Route::resource('courses', CourseController::class);
+
+    // Route::get('/course/{id}',[CourseController::class, 'show']);
     
-    Route::get('/add-course', function(){
-        return view('Lecturer.add_course');
-    });
-    Route::post('/add-course', function(){
-        return redirect('/lecturer/dashboard');
-    });
-    Route::get('/update-course', function(){
-        return view('Lecturer.update_course');
-    });
-    Route::post('/update-course', function(){
-        return redirect('/lecturer/course');
-    });
+    // Route::get('/add-course', function(){
+    //     return view('Lecturer.add_course');
+    // });
+    // Route::post('/add-course', [CourseController::class, 'store']);
+    // Route::get('/update-course', function(){
+    //     return view('Lecturer.update_course');
+    // });
+    // Route::post('/update-course', function(){
+    //     return redirect('/lecturer/course');
+    // });
 
     Route::get('/add-task', function(){
         return view('Lecturer.add_task');
