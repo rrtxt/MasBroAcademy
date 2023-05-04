@@ -5,12 +5,13 @@
 
 @section('main-section')
     <div class="course pop-up" role="alert">
-        <form action="/course" method="POST">
+        <form id="delete-form" action="{{ route('courses.destroy', $course['id']) }}" method="POST">
+            @method('DELETE')
             @csrf
             <div class="pop-up-container">
                 <p>Are you sure want to delete this course?</p>
                 <ul class="pop-up-btn">
-                    <a id="yes-btn" href="">
+                    <a id="yes-btn" href="#" onclick="document.getElementById('delete-form').submit()">
                         <li>Yes</li>
                     </a>
                     <li id="course no-btn">No</li>
