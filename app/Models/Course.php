@@ -12,7 +12,7 @@ class Course extends Model
 
     public $timestamps = true;
 
-    protected $fillable = ['title', 'description', 'lecturer_id', 'image'];
+    protected $fillable = ['title', 'description', 'lecturer_id', 'image', 'category_id'];
 
     protected $casts = [
         'created_at' => 'datetime',
@@ -24,10 +24,17 @@ class Course extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function lecturers()
     {
-        return $this->belongsTo(Lecturer::class, 'id', 'lecturer_key');
+        return $this->belongsTo(Lecturer::class);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

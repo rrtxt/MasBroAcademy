@@ -23,10 +23,13 @@
             <div id="category-container">
                 <select name="category" id="category-input">
                     <option value="">--Please choose an category--</option>
-                    <option value="Web Programming">Web Programming</option>
+                    {{-- <option value="Web Programming">Web Programming</option>
                     <option value="Mobile Programming">Mobile Programming</option>
                     <option value="Machine Learning">Machine Learning</option>
-                    <option value="Data Science">Data Science</option>
+                    <option value="Data Science">Data Science</option> --}}
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                 </select>
                 <p class="error"></p>
             </div>

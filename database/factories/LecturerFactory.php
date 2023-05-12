@@ -20,7 +20,7 @@ class LecturerFactory extends Factory
             //
             'name' => $this->faker->name(),
             'email' => $this->faker->email(),
-            'password' => Hash::make($this->faker->password()), 
+            'password' => Hash::make(12345678), 
             'created_at' => Date::now(),
             'updated_at' => Date::now(),
         ];

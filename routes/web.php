@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\TaskController;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Facades\Route;
 
@@ -60,11 +61,11 @@ Route::prefix('lecturer')->group(function(){
     });
     Route::post('/login', [LecturerController::class, 'login']);
     
-    Route::resource('course', CourseController::class);
-    
     Route::get('/dashboard', [LecturerController::class, 'index'])->name('lecturer.dashboard');
 
     Route::resource('courses', CourseController::class);
+
+    Route::resource('courses.tasks', TaskController::class);
 
     // Route::get('/course/{id}',[CourseController::class, 'show']);
     
@@ -79,17 +80,17 @@ Route::prefix('lecturer')->group(function(){
     //     return redirect('/lecturer/course');
     // });
 
-    Route::get('/add-task', function(){
-        return view('Lecturer.add_task');
-    });
-    Route::post('/add-task', function(){
-        return redirect('/lecturer/course');
-    });
+    // Route::get('/add-task', function(){
+    //     return view('Lecturer.add_task');
+    // });
+    // Route::post('/add-task', function(){
+    //     return redirect('/lecturer/course');
+    // });
 
-    Route::get('/update-task', function(){
-        return view('Lecturer.update_task');
-    });
-    Route::post('/update-task', function(){
-        return redirect(('/lecturer/course'));
-    });
+    // Route::get('/update-task', function(){
+    //     return view('Lecturer.update_task');
+    // });
+    // Route::post('/update-task', function(){
+    //     return redirect(('/lecturer/course'));
+    // });
 });

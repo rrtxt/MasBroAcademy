@@ -23,16 +23,22 @@
                 </a>
             </div>
             <div class="course-cards">
-                @foreach ($user->courses as $course)
-                    <a href="{{ route('courses.show', $course->id) }}">
-                        <div class="course">
-                            <div class="card"
-                                style="background-image: url({{ asset('storage/' . $course['image']) }}); background-size: cover;">
+                @if (sizeof($user->courses) < 1)
+                    <div id="empty-line">
+                        <h2>Tidak ada course</h2>
+                    </div>
+                @else
+                    @foreach ($user->courses as $course)
+                        <a href="{{ route('courses.show', $course->id) }}">
+                            <div class="course">
+                                <div class="card"
+                                    style="background-image: url({{ asset('storage/' . $course['image']) }}); background-size: cover;">
+                                </div>
+                                <h3 class="course-title">{{ $course->title }}</h3>
                             </div>
-                            <h3 class="course-title">{{ $course->title }}</h3>
-                        </div>
-                    </a>
-                @endforeach
+                        </a>
+                    @endforeach
+                @endif
             </div>
             <a href="/courses">
                 <div class="all-courses">

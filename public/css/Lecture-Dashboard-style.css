@@ -60,6 +60,12 @@
     margin-top: 25px;
 }
 
+#empty-line{
+    padding: 100px 400px;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
 .course{
     margin: 10px;
 }

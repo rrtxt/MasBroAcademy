@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Course;
 use App\Models\Lecturer;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Date;
@@ -25,6 +26,6 @@ class LecturerSeeder extends Seeder
         //     'created_at' => Date::now(),
         //     'updated_at' => Date::now(),
         // ]);
-        Lecturer::factory()->count(10)->create();
+        Lecturer::factory()->create();
     }
 }

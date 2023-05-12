@@ -11,6 +11,7 @@
     transition: opacity 0.3s 0s, visibilty 0s 0.3s; */
     position: fixed;
     padding: 200px 0px;
+    margin-top: -10px;
     left: 0;
     top: 0;
     height: 100%;

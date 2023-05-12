@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
+use App\Models\Category;
 use Illuminate\Support\Facades\Date;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CourseController extends Controller
 {
@@ -28,7 +30,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('Lecturer.add_course');
+        $categories = Category::all();
+        return view('Lecturer.add_course', compact('categories'));
     }
 
     /**
@@ -39,21 +42,26 @@ class CourseController extends Controller
      */
     public function store(StoreCourseRequest $request)
     {
-        $image_path = $request->file('cover')->store('image', 'public');
         $data = [
-            'image' => $image_path,
             'title' => $request['title'],
             'category' => $request['category'],
             'description' => $request['desc'],
             'lecturer_id' => session('user')->id,
+            'category_id' => $request['category'],
             'created_at' =>  Date::now(),
             'updated_at' => Date::now(),
             ];
 
-            if(Course::where('title', $data['title'])->count() < 1){
-                Course::create($data);
-                return redirect()->route('lecturer.dashboard');
-            }
+        if(Course::where('title', $data['title'])->count() < 1){
+            $image_path = $request->file('cover')->store('image', 'public');
+            $data['image'] = $image_path;
+            Course::create($data);
+            return redirect()->route('lecturer.dashboard');
+        }
+
+        Alert::error('title', 'This title has been taken');
+
+        return back()->withErrors(['title' => 'This title has been taken']);
     }
 
     /**
@@ -64,6 +72,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
+        // dd($course->category);
         return view('Lecturer.course', compact('course'));
     }
 
@@ -99,6 +108,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
+        unlink('storage/'.$course->image);
         $course->delete();
         return redirect()->route('lecturer.dashboard');
     }
