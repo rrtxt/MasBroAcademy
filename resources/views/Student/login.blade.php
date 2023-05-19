@@ -6,7 +6,7 @@
 
 @section('main-section')
     <div class="background-container">
-        <form name="log-in" action="/login" method="POST">
+        <form name="log-in" action="/student/login" method="POST">
             @csrf
             <h1 id="login-title">Login</h1>
             <h2>Student</h2>

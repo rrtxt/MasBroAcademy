@@ -8,7 +8,7 @@
 
 @section('main-section')
     <div id="search-bar-container">
-        <form action="">
+        <form action="" method="GET">
             <input type="search" name="search" placeholder="Search..." id="search-bar">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
@@ -17,44 +17,16 @@
         <h3 id="trend-title">Trending Courses</h3>
         <div class="course-cards">
             <div class="row">
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <a href="/course">
-                        <div class="card">
-
+                @foreach ($courses as $course)
+                    <a href="{{ route('courses.show', $course->id) }}">
+                        <div class="course">
+                            <div class="card"
+                                style="background-image: url({{ asset('storage/' . $course['image']) }}); background-size: cover;">
+                            </div>
+                            <h3 class="course-title">{{ $course->title }}</h3>
                         </div>
-                        <h3 class="course-title">Babi guling</h3>
                     </a>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
-                <div class="course">
-                    <div class="card">
-
-                    </div>
-                    <h3 class="course-title">Babi guling</h3>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -64,13 +36,16 @@
         </h3>
         <div class="categories-container">
             <div id="left-button"><i class="fa-solid fa-chevron-left fa-2xl"></i></div>
-            <div class="category w3-animate-zoom" style="display: block;">
-                <div class="card">
+            @foreach ($categories as $category)
+                <div class="category w3-animate-zoom" style="display: block;">
+                    <div class="card"
+                        style="background-image: url({{ asset('storage/' . $category->img_link) }}); background-size: cover;">
 
+                    </div>
+                    <h3 class="category-title">{{ $category->name }}</h3>
                 </div>
-                <h3 class="category-title">Web Programming</h3>
-            </div>
-            <div class="category w3-animate-zoom" style="display: block;">
+            @endforeach
+            {{-- <div class="category w3-animate-zoom" style="display: block;">
                 <div class="card">
 
                 </div>
@@ -93,7 +68,7 @@
 
                 </div>
                 <h3 class="category-title">Data Science</h3>
-            </div>
+            </div> --}}
             <div id="right-button"><i class="fa-solid fa-chevron-right fa-2xl"></i></div>
         </div>
     </div>

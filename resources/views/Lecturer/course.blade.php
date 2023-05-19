@@ -43,18 +43,18 @@
         <div class="course-tasks">
             @foreach ($course->tasks as $task)
                 <div class="task pop-up" role="alert">
-                    <form id="task-delete-form" action="{{ route('courses.tasks.destroy', [$course->id, $task->id]) }}"
-                        method="POST">
+                    <form id="task-delete-form {{ $task->id }}"
+                        action="{{ route('courses.tasks.destroy', [$course->id, $task->id]) }}" method="POST">
                         @method('DELETE')
                         @csrf
                         <div class="pop-up-container">
                             <p>Are you sure want to delete this task?</p>
                             <ul class="pop-up-btn">
-                                <a id="yes-btn" href="#"
-                                    onclick="document.getElementById('task-delete-form').submit()">
+                                <a class="yes-btn" href="#"
+                                    onclick="document.getElementById('task-delete-form {{ $task->id }}').submit()">
                                     <li>Yes</li>
                                 </a>
-                                <li id="task no-btn">No</li>
+                                <li class="task no-btn">No</li>
                             </ul>
                         </div>
                     </form>

@@ -22,6 +22,7 @@ class CategorySeeder extends Seeder
         foreach($categories as $category){
             DB::table('categories')->insert(
                 ['name' => $category,
+                'img_link' => 'image/masbro-ngoding.jpg',
                 'created_at' => Date::now(),
                 'updated_at' => Date::now(),
                 ]);

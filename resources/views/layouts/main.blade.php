@@ -23,11 +23,17 @@
             <ul>
                 @if (Route::getCurrentRoute()->uri() == '/')
                     <li id="login">Login</li>
+                @elseif (Auth::check() || Auth::guard('admin')->check() || Auth::guard('student')->check())
+                    <li><a href="lecturer/dashboard">Dashboard</a></li>
                 @else
                     <li><a href="/">Home</a></li>
                 @endif
                 <li><a href="/courses">Course</a></li>
-                <li><a href="/Community">Community</a></li>
+                @if (Auth::check() || Auth::guard('admin')->check() || Auth::guard('student')->check())
+                    <li><a href="/logout">Logout</a></li>
+                @else
+                    <li><a href="#">Community</a></li>
+                @endif
             </ul>
         </div>
     </nav>

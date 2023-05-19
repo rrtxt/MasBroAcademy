@@ -11,7 +11,7 @@
             <h3>Belajar dan mengajar dimana saja</h3>
             <h4>START NOW AS</h4>
             <div class="button-container">
-                <a href="/student-signup">
+                <a href="/student/signup">
                     <button class="signup-btn" type="button">Student</button>
                 </a>
                 <a href="/lecturer/signup">

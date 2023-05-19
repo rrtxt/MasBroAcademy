@@ -6,8 +6,11 @@ use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use RealRashid\SweetAlert\Facades\Alert;
+
+use function PHPUnit\Framework\isEmpty;
 
 class CourseController extends Controller
 {
@@ -16,12 +19,21 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::all();
+        if($request->search != null){
+            // dd($request->search);
+            $courses = Course::where('title', 'LIKE', '%'.$request->search.'%')->get();
+            // dd($courses);
+        }
+        else{
+            $courses = Course::all();
+        }
+        $categories = Category::all();
 
-        return view('courses', ['courses' => $courses]);
+        return view('courses', ['courses' => $courses, 'categories' => $categories]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -70,9 +82,12 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show(Request $request ,Course $course)
     {
-        // dd($course->category);
+        if($request->user()->cannot('view', $course)){
+            Alert::error('Error', 'You cannot view this course');
+            return back();
+        }
         return view('Lecturer.course', compact('course'));
     }
 
@@ -96,6 +111,10 @@ class CourseController extends Controller
      */
     public function update(UpdateCourseRequest $request, Course $course)
     {
+        if($request->user()->cannot('update', $course)){
+            Alert::error('Error', 'You cannot update this post');
+            return redirect()->route('lecturer.dashboard');
+        }
         $course->update($request->all());
         return redirect()->route('lecturer.dashboard');
     }
@@ -106,8 +125,12 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy(Request $request,Course $course)
     {
+        if($request->user()->cannot('delete', $course)){
+            Alert::error('Error', 'You cannot delete this post');
+            return redirect()->route('lecturer.dashboard');
+        }
         unlink('storage/'.$course->image);
         $course->delete();
         return redirect()->route('lecturer.dashboard');

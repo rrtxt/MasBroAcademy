@@ -11,6 +11,8 @@ class Category extends Model
 
     protected $table = 'categories';
 
+    protected $fillable = ['name', 'img_link'];
+
     public function courses(){
         return $this->hasMany(Course::class);
     }
