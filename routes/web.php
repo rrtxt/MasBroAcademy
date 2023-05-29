@@ -4,8 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TaskController;
 use App\Http\Middleware\Authenticate;
+use App\Http\Requests\StoreTaskRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,30 +24,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // dd(Route::getCurrentRoute()->uri());
     return view('home');
-})->name('home');
+})->name('home')->middleware('guest:student,lecturer');
 
 Route::prefix('student')->group(function(){
     Route::get('/signup', function () {
         return view('Student.signup');
     });
-    Route::post('/signup', function(){
-        return redirect('/student-login');
-    });
+    Route::post('/signup', [StudentController::class, 'register']);
 
     Route::get('/login', function(){
         return view('Student.login');
     });
-    Route::post('/login', function(){
-        return redirect('/student-dashboard');
+    Route::post('/login', [StudentController::class, 'login']);
+
+    Route::middleware('auth:student')->group(function(){
+        Route::get('/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
+        Route::get('/course/{course}', [CourseController::class, 'show'])->name('student.course.show');
+        Route::post('/course/enroll/{course}', [StudentController::class, 'enroll'])->name('student.enroll');
     });
 
-    Route::get('/dashboard', function(){
-        return view('Student.dashboard');
-    });
-
-    Route::get('/course', function(){
-        return view('Student.course');
-    });
 });
 
 
@@ -66,10 +63,9 @@ Route::prefix('lecturer')->group(function(){
 
     Route::post('/login', [LecturerController::class, 'login']);
 
-    Route::middleware([Authenticate::class])->group(function(){
+    Route::middleware('auth:lecturer')->group(function(){
         Route::get('/dashboard', [LecturerController::class, 'index'])-> name('lecturer.dashboard');
         Route::resource('courses', CourseController::class);
-
         Route::resource('courses.tasks', TaskController::class);
     });
 

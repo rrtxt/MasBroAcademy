@@ -12,7 +12,7 @@
             <h2>Student</h2>
             <div class="input-container">
                 <div class="input">
-                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="text" id="username" name="email" placeholder="Email">
                     <p id="username-error"></p>
                 </div>
 

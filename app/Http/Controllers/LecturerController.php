@@ -40,7 +40,7 @@ class LecturerController extends Controller
         if(Auth::guard('lecturer')->attempt($credential)){
             $request->session()->regenerate();
             $user = Auth::user();
-            session(['babi' => $user]);
+            session(['lecturer' => $user]);
             return redirect('/lecturer/dashboard');
         }
 
@@ -50,9 +50,11 @@ class LecturerController extends Controller
         ])->onlyInput('email');
     }
 
-    public function logout(){
+    public function logout(Request $request){
         Session::flush();
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/');
     }
 

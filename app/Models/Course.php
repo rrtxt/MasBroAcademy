@@ -37,4 +37,8 @@ class Course extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function enrollments(){
+        return $this->belongsToMany(Enrollment::class, 'enrollments_courses');
+    }
 }

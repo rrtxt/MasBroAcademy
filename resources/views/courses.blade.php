@@ -18,13 +18,17 @@
         <div class="course-cards">
             <div class="row">
                 @foreach ($courses as $course)
-                    <a href="{{ route('courses.show', $course->id) }}">
-                        <div class="course">
-                            <div class="card"
-                                style="background-image: url({{ asset('storage/' . $course['image']) }}); background-size: cover;">
-                            </div>
-                            <h3 class="course-title">{{ $course->title }}</h3>
+                    @if (Auth::guard('student')->check())
+                        <a href="{{ route('student.course.show', $course->id) }}">
+                        @else
+                            <a href="{{ route('courses.show', $course->id) }}">
+                    @endif
+                    <div class="course">
+                        <div class="card"
+                            style="background-image: url({{ asset('storage/' . $course['image']) }}); background-size: cover;">
                         </div>
+                        <h3 class="course-title">{{ $course->title }}</h3>
+                    </div>
                     </a>
                 @endforeach
             </div>

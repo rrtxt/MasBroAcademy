@@ -6,11 +6,12 @@ use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Category;
+use App\Models\Enrollment;
+use App\Models\enrollments_courses;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use RealRashid\SweetAlert\Facades\Alert;
-
-use function PHPUnit\Framework\isEmpty;
 
 class CourseController extends Controller
 {
@@ -58,7 +59,7 @@ class CourseController extends Controller
             'title' => $request['title'],
             'category' => $request['category'],
             'description' => $request['desc'],
-            'lecturer_id' => session('user')->id,
+            'lecturer_id' => session('lecturer')->id,
             'category_id' => $request['category'],
             'created_at' =>  Date::now(),
             'updated_at' => Date::now(),
@@ -84,11 +85,27 @@ class CourseController extends Controller
      */
     public function show(Request $request ,Course $course)
     {
-        if($request->user()->cannot('view', $course)){
-            Alert::error('Error', 'You cannot view this course');
-            return back();
+
+        if(Auth::guard('lecturer')->check()){
+            if($request->user()->cannot('view', $course)){
+                Alert::error('Error', 'You cannot view this course');
+                return back();
+            }
+            return view('Lecturer.course', compact('course'));
         }
-        return view('Lecturer.course', compact('course'));
+        else if(Auth::guard('student')->check()){
+            $enrolled = false;
+            foreach($course->enrollments as $enrollment){
+                if($enrollment->student_id == Auth::guard('student')->user()->id){
+                    $enrolled = true;
+                    break;
+                }
+            }
+            return view('Student.course', compact('course', 'enrolled'));
+        }
+
+        return back();
+
     }
 
     /**
