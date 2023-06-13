@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // dd(Route::getCurrentRoute()->uri());
     return view('home');
-})->name('home')->middleware('guest:student,lecturer');
+})->name('home')->middleware('guest:student,lecturer,admin');
 
 Route::prefix('student')->group(function(){
     Route::get('/signup', function () {
@@ -72,10 +72,12 @@ Route::prefix('lecturer')->group(function(){
 });
 
 Route::prefix('admin')->group(function (){
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::middleware('auth:admin')->group(function(){
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+        Route::resource('category', CategoryController::class);
+    });
     Route::get('/login', [AdminController::class, 'index']);
     Route::post('/login', [AdminController::class, 'login']);
-    Route::resource('category', CategoryController::class);
 });
 
 Route::get('/logout', [LecturerController::class, 'logout']);
